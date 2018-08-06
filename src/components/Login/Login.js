@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import {withRouter} from 'react-router'
 
 class Login extends Component {
     state = {
@@ -12,10 +13,9 @@ class Login extends Component {
         const isValidLogin = this.state.username === 'user' && this.state.password === 'password'
         if (!isValidLogin) {
             this.setState({error: 'Wrong user or password'})
+            return
         }
-        else {
-            console.log('login')
-        }
+        this.props.history.push('/flights')
     }
 
     setUserName = (e) => {
@@ -46,4 +46,4 @@ class Login extends Component {
     }
 }
 
-export default Login;
+export default withRouter(Login);
