@@ -1,7 +1,7 @@
 import React from 'react'
 
 const Flight = (props) => (
-    <ul>
+    <ul className="flight card">
         <li>From: {props.from}</li>
         <li>To: {props.to}</li>
         <li>Departure Time: {props.departureTime.toLocaleString()}</li>

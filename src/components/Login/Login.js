@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import {withRouter} from 'react-router'
+import './Login.css'
 
 class Login extends Component {
     state = {
@@ -28,19 +29,19 @@ class Login extends Component {
 
     render() {
         return (
-            <form onSubmit={this.login}>
-                <input
+            <form onSubmit={this.login} className="login card">
+                <input className="text-field"
                     type="text"
                     placeholder="user"
                     value={this.state.username}
                     onChange={this.setUserName}/>
-                <input type="password"
+                <input className="text-field" type="password"
                        placeholder="password"
                        value={this.state.password}
                        onChange={this.setPassword}
                 />
-                <button type="submit">Login</button>
-                {this.state.error ? <span>{this.state.error}</span> : null}
+                <button className="submit" type="submit">Login</button>
+                {this.state.error ? <span className="error">{this.state.error}</span> : null}
             </form>
         )
     }

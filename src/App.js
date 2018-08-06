@@ -7,11 +7,13 @@ import './App.css';
 class App extends Component {
     render() {
         return (
-            <BrowserRouter className="App">
-                <Switch>
-                    <Route path="/flights" component={Flights}/>
-                    <Route path="/" component={Login}/>
-                </Switch>
+            <BrowserRouter>
+                <div className="App">
+                    <Switch>
+                        <Route path="/flights" component={Flights}/>
+                        <Route path="/" component={Login}/>
+                    </Switch>
+                </div>
             </BrowserRouter>
         );
     }

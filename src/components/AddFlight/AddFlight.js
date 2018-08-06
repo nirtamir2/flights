@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import './AddFlight.css'
 
 
 class AddFlights extends Component {
@@ -43,43 +44,47 @@ class AddFlights extends Component {
 
     render() {
         return (
-            <form onSubmit={this.createFlight}>
+            <div>
                 <h2>add flights</h2>
-                <label htmlFor="from">From</label>
+                <form onSubmit={this.createFlight} className="card">
+                    <div className="add-flight">
+                        <label htmlFor="from">From</label>
+                        <input className="text-field" required
+                               id="from"
+                               type="text"
+                               placeholder="From"
+                               value={this.state.from}
+                               onChange={this.setFrom}/>
+                        <label htmlFor="to">To</label>
+                        <input className="text-field" required type="text"
+                               id="to"
+                               placeholder="To"
+                               value={this.state.to}
+                               onChange={this.setTo}/>
+                        <label htmlFor="price">Price</label>
 
-                <input
-                    id="from"
-                    type="text"
-                    placeholder="From"
-                    value={this.state.from}
-                    onChange={this.setFrom}/>
-                <label htmlFor="to">To</label>
-                <input type="text"
-                       id="to"
-                       placeholder="To"
-                       value={this.state.to}
-                       onChange={this.setTo}/>
-                <label htmlFor="price">Price</label>
+                        <input className="text-field" required type="number" min="0"
+                               id="price"
+                               placeholder="Price"
+                               value={this.state.price}
+                               onChange={this.setPrice}/>
+                        <label htmlFor="departureTime">Departure Time</label>
+                        <input className="text-field" required type="datetime-local"
+                               id="departureTime"
+                               placeholder="Departure Time"
+                               value={this.state.departureTime.toISOString().substring(0, 16)}
+                               onChange={this.setDepartureTime}/>
+                        <label htmlFor="landingTime">Landing Time</label>
+                        <input className="text-field" required type="datetime-local"
+                               id="landingTime"
+                               placeholder="Landing Time"
+                               value={this.state.landingTime.toISOString().substring(0, 16)}
+                               onChange={this.setLandingTime}/>
+                    </div>
+                    <button type="submit" className="submit">Create</button>
+                </form>
+            </div>
 
-                <input type="text"
-                       id="price"
-                       placeholder="Price"
-                       value={this.state.price}
-                       onChange={this.setPrice}/>
-                <label htmlFor="departureTime">Departure Time</label>
-                <input type="datetime-local"
-                       id="departureTime"
-                       placeholder="Departure Time"
-                       value={this.state.departureTime.toISOString().substring(0, 16)}
-                       onChange={this.setDepartureTime}/>
-                <label htmlFor="landingTime">Landing Time</label>
-                <input type="datetime-local"
-                       id="landingTime"
-                       placeholder="Landing Time"
-                       value={this.state.landingTime.toISOString().substring(0, 16)}
-                       onChange={this.setLandingTime}/>
-                <button type="submit">Create</button>
-            </form>
         )
     }
 }
