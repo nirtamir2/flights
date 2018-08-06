@@ -4,8 +4,8 @@ const Flight = (props) => (
     <ul>
         <li>From: {props.from}</li>
         <li>To: {props.to}</li>
-        <li>Departure Time: {props.departureTime}</li>
-        <li>Landing Time: {props.landingTime}</li>
+        <li>Departure Time: {props.departureTime.toLocaleString()}</li>
+        <li>Landing Time: {props.landingTime.toLocaleString()}</li>
         <li>Price: {props.price}</li>
     </ul>
 );
